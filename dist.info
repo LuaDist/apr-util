@@ -1,0 +1,13 @@
+--- This file is part of LuaDist project
+
+name = "apr-util"
+version = "1.4.1"
+
+desc = "Utility library for the Apache Portable Runtime Library."
+license = "Apache and others (see LICENSE)"
+url = "http://www.apache.org/"
+maintainer = "David Manura"
+
+depends = {
+	"apr 1.4.6"
+}
