@@ -228,3 +228,56 @@ add_library ( apr_dbm_ndbm SHARED ${SRC_dbm_ndbm} )  # ${LDADD_dbm_ndbm}
 
 # BUILD_DIRS = buckets crypto dbd dbm dbm/sdbm encoding hooks ldap memcache misc strmatch uri xlate xml
 
+enable_testing()
+#TODO: add_subdirectory ( test )
+
+install_library ( apr_crypto_openssl )
+install_library ( apr_crypto_nss )
+install_library ( apr_dbd_pgsql )
+install_library ( apr_dbd_sqlite2 )
+install_library ( apr_dbd_sqlite3 )
+install_library ( apr_dbd_oracle )
+install_library ( apr_dbd_mysql )
+install_library ( apr_dbd_freetds )
+install_library ( apr_dbd_odbc )
+install_library ( apr_dbm_db )
+install_library ( apr_dbm_gdbm )
+install_library ( apr_dbm_ndbm )
+
+install_header (
+  ${CMAKE_CURRENT_BINARY_DIR}/apr_ldap.h
+  ${CMAKE_CURRENT_BINARY_DIR}/apu.h
+  ${CMAKE_CURRENT_BINARY_DIR}/apu_want.h
+  include/apr_anylock.h
+  include/apr_base64.h
+  include/apr_buckets.h
+  include/apr_crypto.h
+  include/apr_date.h
+  include/apr_dbd.h
+  include/apr_dbm.h
+  include/apr_hooks.h
+  include/apr_ldap_init.h
+  include/apr_ldap_option.h
+  include/apr_ldap_rebind.h
+  include/apr_ldap_url.h
+  include/apr_md4.h
+  include/apr_md5.h
+  include/apr_memcache.h
+  include/apr_optional.h
+  include/apr_optional_hooks.h
+  include/apr_queue.h
+  include/apr_reslist.h
+  include/apr_rmm.h
+  include/apr_sdbm.h
+  include/apr_sha1.h
+  include/apr_strmatch.h
+  include/apr_thread_pool.h
+  include/apr_uri.h
+  include/apr_uuid.h
+  include/apr_xlate.h
+  include/apr_xml.h
+  include/apu_errno.h
+  include/apu_version.h
+)
+
+install_doc ( CHANGES LICENSE README )
