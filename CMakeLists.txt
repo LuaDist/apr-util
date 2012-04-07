@@ -24,9 +24,9 @@ It was adapted from the autoconf build,
 which is fairly complex.
 ")
 
-include_directories ( /usr/include/apr-1.0/ ) # FIX: for apr.h and apr_lib.h
-#include_directories ( ${CMAKE_CURRENT_SOURCE_DIR}/../apr/include ) # FIX: for apr_lib.h
-#include_directories ( ${CMAKE_CURRENT_SOURCE_DIR}/../apr/b/ ) # for apr.h
+find_package(APR REQUIRED)
+
+include_directories ( ${APR_INCLUDE_DIR} ) # for apr.h and apr_lib.h
 include_directories ( ${CMAKE_CURRENT_BINARY_DIR} )
 include_directories ( ${CMAKE_CURRENT_SOURCE_DIR}/include )
 include_directories ( ${CMAKE_CURRENT_SOURCE_DIR}/include/private )
