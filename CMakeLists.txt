@@ -226,10 +226,25 @@ set ( SRC_dbm_ndbm
 )
 add_library ( apr_dbm_ndbm SHARED ${SRC_dbm_ndbm} )  # ${LDADD_dbm_ndbm}
 
+set ( APR_UTIL_LIBS
+  apr_crypto_openssl
+  apr_crypto_nss
+  apr_dbd_pgsql
+  apr_dbd_sqlite2
+  apr_dbd_sqlite3
+  apr_dbd_oracle
+  apr_dbd_mysql
+  apr_dbd_freetds
+  apr_dbd_odbc
+  apr_dbm_db
+  apr_dbm_gdbm
+  apr_dbm_ndbm
+)
+
 # BUILD_DIRS = buckets crypto dbd dbm dbm/sdbm encoding hooks ldap memcache misc strmatch uri xlate xml
 
 enable_testing()
-#TODO: add_subdirectory ( test )
+add_subdirectory ( test )
 
 install_library ( apr_crypto_openssl )
 install_library ( apr_crypto_nss )
