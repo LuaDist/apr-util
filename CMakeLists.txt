@@ -28,13 +28,15 @@ find_package(APR REQUIRED)
 
 #FIX
 #APU_FIND_LDAP
-#APU_FIND_EXPAT
+find_package(EXPAT REQUIRED)
+   # note: xml/expat sources included too
 #APU_FIND_ICONV
+find_library ( CRYPT_LIB crypt )  #FIX: r_crypt
 
-include_directories ( ${APR_INCLUDE_DIR} ) # for apr.h and apr_lib.h
 include_directories ( ${CMAKE_CURRENT_BINARY_DIR} )
 include_directories ( ${CMAKE_CURRENT_SOURCE_DIR}/include )
 include_directories ( ${CMAKE_CURRENT_SOURCE_DIR}/include/private )
+include_directories ( ${APR_INCLUDE_DIR} ) # for apr.h and apr_lib.h
 
 # from apu_config.h.cmake
 message ( WARNING "FIX: apu_config.h.cmake variables" )
@@ -42,28 +44,28 @@ message ( WARNING "FIX: apu_config.h.cmake variables" )
 # from apu.h.in
 message ( WARNING "FIX: apu.h.in variables" )
 set ( apu_have_sdbm 1 )
-set ( apu_have_gdbm 1 )
-set ( apu_have_ndbm 1 )
-set ( apu_have_db 1 )
+set ( apu_have_gdbm 0 )
+set ( apu_have_ndbm 0 )
+set ( apu_have_db 0 )
 ##if APU_HAVE_DB
 ##define APU_HAVE_DB_VERSION    @apu_db_version@
 ##endif
-set ( apu_have_pgsql 1 )
-set ( apu_have_mysql 1 )
-set ( apu_have_sqlite3 1 )
-set ( apu_have_sqlite2 1 )
-set ( apu_have_oracle 1 )
-set ( apu_have_freetds 1 )
-set ( apu_have_odbc 1 )
-set ( apu_have_crypto 1 )
+set ( apu_have_pgsql 0 )
+set ( apu_have_mysql 0 )
+set ( apu_have_sqlite3 0 )
+set ( apu_have_sqlite2 0 )
+set ( apu_have_oracle 0 )
+set ( apu_have_freetds 0 )
+set ( apu_have_odbc 0 )
+set ( apu_have_crypto 0 )
 set ( apu_have_openssl 1 )
 set ( apu_have_nss 1 )
-set ( have_apr_iconv 1 )
-set ( have_iconv 1 )
+set ( have_apr_iconv 0 )
+set ( have_iconv 0 )
 
-# from apr_ldap.h.in
+# from apr_ldap.h.inm
 message ( WARNING "FIX: apr_ldap.h.in variables" )
-set ( apu_has_ldap 1 )
+set ( apu_has_ldap 0 )
 set ( apu_has_ldap_netscape 1 )
 set ( apu_has_ldap_solaris 1 )
 set ( apu_has_ldap_novell 1 )
