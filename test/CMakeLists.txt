@@ -9,8 +9,8 @@ set ( SRC_TESTS
 )
 
 add_executable ( testall abts.c testutil.c ${SRC_TESTS} ${_extra_libs} )
-
 target_link_libraries ( testall ${APR_UTIL_LIBS} ${APR_LIBRARIES}  )
+
 add_executable ( dbd dbd.c ${_extra_libs} )
 target_link_libraries ( dbd ${APR_UTIL_LIBS} ${APR_LIBRARIES}  )
 
